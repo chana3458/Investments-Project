@@ -1,0 +1,42 @@
+
+import {Route,Routes} from "react-router-dom"
+import { Home } from "../home/home"
+
+import { RealEstate } from "../realEstate/realEstate"
+import { CustomerRegister } from "../CustomerRegister/CustomerRegister"
+import { Investor } from "../investor/investor"
+import { Manager } from "../manager/manager"
+import { Investee } from "../investee/investee"
+import { InvesteeRegister } from "../investee/investeeRegister"
+import { PersonalDetails } from "../personalDetails/personalDetails"
+import { Request } from "../investor/request"
+
+export const Routing=()=>{
+    return <div>
+
+<Routes>
+<Route path={''} element={<Home/>}></Route>
+
+<Route path={'/home'} element={<Home/>}></Route>
+
+<Route path={'/realEstate'} element={<RealEstate/>}></Route>
+<Route path={'/customerRegister'} element={<CustomerRegister/>}></Route>
+<Route path={'/investor'} element={<Investor/>}></Route>
+<Route path={'/investee'} element={<Investee/>}></Route>
+<Route path={'/information'} element={<RealEstate/>}></Route>
+<Route path={'/manager'} element={<Manager/>}></Route>
+<Route path={'/investeeRegister'} element={<InvesteeRegister/>}></Route>
+<Route path={'/personalDetails'} element={<PersonalDetails/>}></Route>
+<Route path={'/request'} element={<Request/>}></Route>
+
+
+
+
+
+
+
+</Routes>
+
+
+    </div>
+}

@@ -1,0 +1,23 @@
+
+*{
+    text-align: center;
+    /* font-size:10px; */
+    margin: 12px;
+    
+color:rgb(0, 60, 0);
+    font-family: cursive;
+}
+
+button{
+    background-color: black;
+}
+.a{
+    border: 3px solid black;
+}
+.aa{
+    border: 3px solid black;
+}
+.mis{
+background-color: black;
+
+}

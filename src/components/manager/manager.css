@@ -1,0 +1,18 @@
+*{
+    font-size: 35px;
+ 
+}
+
+.manager  td{
+    border:2px black solid;
+  
+}
+.manager  th{
+    font-size: 30px;
+   
+}
+.manager table{
+    width: 80%;
+    margin:10%;
+    margin-top: 3vh;
+}
