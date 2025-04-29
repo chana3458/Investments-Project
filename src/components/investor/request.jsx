@@ -44,7 +44,7 @@
 
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addRequestThunk } from "../../redux/Slices/Customer/";
+import { addRequestThunk } from "../../redux/Slices/Request/addRequestThunk";
 import { useNavigate } from "react-router-dom";
 import "./request.css";
 
