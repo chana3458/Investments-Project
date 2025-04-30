@@ -113,7 +113,7 @@ export const InvesteeRegister = () => {
         </div>
         
         <div className="register-form">
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Property ID</label>
             <input 
               type="text" 
@@ -124,7 +124,7 @@ export const InvesteeRegister = () => {
             />
             {formErrors.id && <span className="error-message">{formErrors.id}</span>}
           </div>
-          
+           */}
           <div className="form-group">
             <label>Property Name/Title</label>
             <input 
