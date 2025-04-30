@@ -19,7 +19,8 @@ customers:[{
 id:"",
 name:"",
 phoneNumber:"",
-address:""
+address:"",
+requests:[]
 }]
 }
 
@@ -45,10 +46,12 @@ builder.addCase(getCustomerByIdThunk.fulfilled,(state,action)=>{
     state.customer=action.payload;
     state.isCustomer=true;
 });
-// builder.addCase(addCustomersThunk.fulfilled,(state,action)=>{
+builder.addCase(getCustomerByIdThunk.rejected,(state,action)=>{
 
-//     state.customers=action.payload;
-// });
+   console.log("slice");
+    state.isCustomer=false;
+});
+
 builder.addCase(delCustomerThunk.fulfilled,(state,action)=>{
 
     //  state.customers=action.payload;

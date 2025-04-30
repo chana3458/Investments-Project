@@ -196,13 +196,15 @@ export const PersonalDetails = () => {
                   <h3>View Portfolio</h3>
                   <p>Check your current investments and performance</p>
                 </div>
-                
-                <div className="action-item">
+            
+
+                <div className="action-item" onClick={() => navigate('/request')}>
                   <div className="action-icon">📅</div>
                   <h3>Schedule Meeting</h3>
-                  <p>Book a consultation with our investment advisors</p>
+                  <p >Book a consultation with our investment advisors</p>
                 </div>
-                
+         
+
                 <div className="action-item">
                   <div className="action-icon">⚙️</div>
                   <h3>Account Settings</h3>
