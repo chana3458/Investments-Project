@@ -1,0 +1,223 @@
+.investee-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .investee-hero {
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    color: white;
+    border-radius: 10px;
+    padding: 60px 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .investee-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+  }
+  
+  .investee-hero .hero-content {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+  }
+  
+  .investee-hero .hero-content.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .investee-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .investee-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .investee-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .info-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+    transition-delay: 0.2s;
+  }
+  
+  .info-card.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .card-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-container {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+  
+  .icon-container i {
+    font-size: 1.5rem;
+  }
+  
+  .card-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .card-body {
+    padding: 30px;
+  }
+  
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .benefits-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .benefit-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #e8f5e9;
+    color: #4caf50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-weight: bold;
+  }
+  
+  .benefit-text {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .card-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+  }
+  
+  .primary-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+  }
+  
+  .secondary-button {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+  }
+  
+  .secondary-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .investee-hero h1 {
+      font-size: 2rem;
+    }
+    
+    .investee-hero p {
+      font-size: 1rem;
+    }
+    
+    .card-footer {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .primary-button, .secondary-button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .investee-hero {
+      padding: 40px 20px;
+    }
+    
+    .investee-hero h1 {
+      font-size: 1.8rem;
+    }
+    
+    .card-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .icon-container {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+  

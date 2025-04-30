@@ -1,27 +1,4 @@
-/* 
-*{
-    text-align: center;
- 
-    margin: 12px;
-    
-color:rgb(0, 60, 0);
-    font-family: cursive;
-}
-
-button{
-    background-color: black;
-}
-.a{
-    border: 3px solid black;
-}
-.aa{
-    border: 3px solid black;
-}
-.mis{
-background-color: black;
-
-} */
-
+/* Base styles */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #e74c3c;
@@ -274,10 +251,4 @@ background-color: black;
     .hero-title {
       font-size: 1.5rem;
     }
-    
-    .action-button {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-    }
-  }
-  
+  }  
