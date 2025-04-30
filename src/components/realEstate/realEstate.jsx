@@ -85,7 +85,7 @@ export const RealEstate = () => {
             <li>Access investment guides and resources</li>
             <li>Learn about real estate investment strategies</li>
           </ul>
-          <button className="option-button">Explore Market Info</button>
+          <button className="option-button" onClick={() => navigate(`/information`)}>Explore Market Info</button>
         </div>
       </div>
       

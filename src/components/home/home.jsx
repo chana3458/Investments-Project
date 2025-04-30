@@ -109,7 +109,7 @@ export const Home = () => {
           <div className="card-icon info-icon"></div>
           <h3>Market Insights</h3>
           <p>Access the latest real estate market trends and analysis</p>
-          <button className="action-button" onClick={() => navigate(`/information`)}>
+          <button className="action-button" onClick={() => navigate(`/realEstate`)}>
             View Insights
           </button>
         </div>

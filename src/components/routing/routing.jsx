@@ -10,6 +10,7 @@ import { Investee } from "../investee/investee"
 import { InvesteeRegister } from "../investee/investeeRegister"
 import { PersonalDetails } from "../personalDetails/personalDetails"
 import { Request } from "../investor/request"
+import { Information } from "../information/information"
 
 export const Routing=()=>{
     return <div>
@@ -23,11 +24,13 @@ export const Routing=()=>{
 <Route path={'/customerRegister'} element={<CustomerRegister/>}></Route>
 <Route path={'/investor'} element={<Investor/>}></Route>
 <Route path={'/investee'} element={<Investee/>}></Route>
-<Route path={'/information'} element={<RealEstate/>}></Route>
+<Route path={'/realEstate'} element={<RealEstate/>}></Route>
 <Route path={'/manager'} element={<Manager/>}></Route>
 <Route path={'/investeeRegister'} element={<InvesteeRegister/>}></Route>
 <Route path={'/personalDetails'} element={<PersonalDetails/>}></Route>
 <Route path={'/request'} element={<Request/>}></Route>
+<Route path={'/information'} element={<Information/>}></Route>
+
 
 
 
