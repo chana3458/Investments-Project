@@ -5,7 +5,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const updateCustomerThunk = createAsyncThunk(
     'updateCustomerThunk',
     async (event) => {
-        const response = await fetch('https://localhost:7110/api/Customer/UpdateCustomer',
+        debugger
+        const response = await fetch('http://localhost:5213/api/Customer/UpdateCustomer',
             {
                 method: 'PUT',
                 body: JSON.stringify(event),

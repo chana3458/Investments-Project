@@ -86,7 +86,7 @@ export const Request = () => {
       errors.Risk_Level = "Risk level must be between 0 and 10";
     }
     
-    if (!newReq.Range.trim()) {
+    if (!newReq.Range) {
       errors.Range = "Investment range is required";
     }
     
@@ -125,7 +125,7 @@ export const Request = () => {
               type="text" 
               value={newReq.id}
               onChange={e => setNewReq({...newReq, id: e.target.value})}
-              placeholder="Enter your investor ID"
+              placeholder="Enter your  ID"
               className={formErrors.id ? "error" : ""}
             />
             {formErrors.id && <span className="error-message">{formErrors.id}</span>}
@@ -171,13 +171,14 @@ export const Request = () => {
             <label>Investment Range</label>
             <select 
               value={newReq.Range}
-              onChange={e => setNewReq({...newReq, Range: e.target.value})}
+          debugger
+              onChange={e => setNewReq({...newReq, Range:parseInt( e.target.value)})}
               className={formErrors.Range ? "error" : ""}
             >
               <option value="">Select investment range</option>
-              <option value="short">Short-term (1-2 years)</option>
-              <option value="medium">Medium-term (3-5 years)</option>
-              <option value="long">Long-term (5+ years)</option>
+              <option value="2">Short-term (1-2 years)</option>
+              <option value="4">Medium-term (3-5 years)</option>
+              <option value="5">Long-term (5+ years)</option>
             </select>
             {formErrors.Range && <span className="error-message">{formErrors.Range}</span>}
           </div>

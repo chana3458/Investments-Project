@@ -117,6 +117,8 @@ import { getAllCustomersThunk } from "../../redux/Slices/Customer/getAllCustomer
 import { useState, useEffect } from "react";
 import { getAllInvesteesThunk } from "../../redux/Slices/investee/getAllInvesteesThunk";
 import { delCustomerThunk } from "../../redux/Slices/Customer/deleteCustomerThunk";
+import { updateCustomerThunk } from "../../redux/Slices/Customer/updateCustomerThunk";
+
 import { useNavigate } from "react-router-dom";
 import "./manager.css";
 import { deleteInvesteeThunk } from "../../redux/Slices/investee/deleteInvesteeThunk";
@@ -391,6 +393,7 @@ export const Manager = () => {
                   <button 
                     className="save-button"
                     onClick={() => {
+                      dispatch(updateCustomerThunk(editCustomer));
                       // Here you would dispatch an update action
                       // For now, just close the modal
                       setIsEdit(false);
