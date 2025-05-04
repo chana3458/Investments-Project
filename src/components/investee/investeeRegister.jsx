@@ -88,9 +88,11 @@ export const InvesteeRegister = () => {
   };
   
   const handleSubmit = async () => {
+    
     if (validateForm()) {
       setIsSubmitting(true);
       try {
+        
         await dispatch(addInvesteeThunk(newInvestee));
         // Show success message
         alert("Property registration successful!");
