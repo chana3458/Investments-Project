@@ -2,10 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getAllCustomersThunk } from "./getAllCustomersThunk";
 import { delCustomerThunk } from "./deleteCustomerThunk";
 import { getCustomerByIdThunk } from "./getCustomerById";
+import { addCustomersThunk } from "./addCustomerThunk";
 
 
 const INITIAL_STATE_CUSTOMER={
-  
+  error:"",
     isCustomer:false,
 customer:{
 
@@ -56,6 +57,12 @@ builder.addCase(delCustomerThunk.fulfilled,(state,action)=>{
 
     //  state.customers=action.payload;
     //  state.addCustomer(state,action);
+});
+builder.addCase(addCustomersThunk.rejected,(state,action)=>{
+debugger
+alert("failed to add customer");
+alert(action.payload.message); 
+
 });
 
     }

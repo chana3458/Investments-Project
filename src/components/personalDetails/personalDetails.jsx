@@ -66,19 +66,26 @@ export const PersonalDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState(false);
   
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const customer = useSelector(state => state.customers.customer);
   const isCustomer = useSelector(state => state.customers.isCustomer);
-  
+  const allCustomers = useSelector(state => state.customers.customers);
   useEffect(() => {
     setIsLoaded(true);
   }, []);
   
   const handleLogin = async () => {
+    const newErrors = {};
     if (!id.trim()) {
       setLoginError(true);
-      return;
+      //  if (!allCustomers.some(customer => customer.id === newCustomer.id)) {
+      //   newErrors.id = " this id does not exsist , please register first"; 
+      // }
+      // // return;
+      // setErrors(newErrors);
+      return Object.keys(newErrors).length === 0;
     }
     
     setIsLoading(true);
