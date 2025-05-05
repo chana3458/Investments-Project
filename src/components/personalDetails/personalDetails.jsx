@@ -65,7 +65,7 @@ export const PersonalDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState(false);
-  
+  const [idError, setidError] = useState(false);
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -77,15 +77,13 @@ export const PersonalDetails = () => {
   }, []);
   
   const handleLogin = async () => {
-    const newErrors = {};
+   
     if (!id.trim()) {
       setLoginError(true);
-      //  if (!allCustomers.some(customer => customer.id === newCustomer.id)) {
-      //   newErrors.id = " this id does not exsist , please register first"; 
-      // }
-      // // return;
-      // setErrors(newErrors);
-      return Object.keys(newErrors).length === 0;
+       if (!allCustomers.some(customer => customer.id === id)) 
+        setidError(true);
+       
+       return;
     }
     
     setIsLoading(true);
@@ -132,6 +130,7 @@ export const PersonalDetails = () => {
                 placeholder="Enter your ID"
               />
               {loginError && <div className="error-message">Invalid ID. Please try again.</div>}
+              {idError && <div className="error-message">Please register before you try to log in</div>}
             </div>
             
             <div className="login-actions">
