@@ -13,7 +13,8 @@ customer:{
     id:"",
     name:"",
     phoneNumber:"",
-    address:""
+    address:"",
+    requestsDetails:[]
     },
 customers:[{
 
@@ -45,10 +46,12 @@ builder.addCase(getAllCustomersThunk.fulfilled,(state,action)=>{
 builder.addCase(getCustomerByIdThunk.fulfilled,(state,action)=>{
 
     state.customer=action.payload;
-    state.isCustomer=true;
+    state.isCustomer=true;  
+  
+ 
 });
 builder.addCase(getCustomerByIdThunk.rejected,(state,action)=>{
-
+   
    console.log("slice");
     state.isCustomer=false;
 });
@@ -59,9 +62,9 @@ builder.addCase(delCustomerThunk.fulfilled,(state,action)=>{
     //  state.addCustomer(state,action);
 });
 builder.addCase(addCustomersThunk.rejected,(state,action)=>{
-debugger
-alert("failed to add customer");
-alert(action.payload.message); 
+
+
+
 
 });
 

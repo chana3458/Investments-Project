@@ -4,7 +4,7 @@
   export const updateCustomerThunk = createAsyncThunk(
       'updateCustomerThunk',
       async (event) => {
-          debugger
+          
           const response = await fetch('http://localhost:5213/api/Customer/UpdateCustomer',
               {
                   method: 'PUT',

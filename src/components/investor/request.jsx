@@ -43,7 +43,7 @@
 
 
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addRequestThunk } from "../../redux/Slices/Request/addRequestThunk";
 import { useNavigate } from "react-router-dom";
 import "./request.css";
@@ -59,7 +59,7 @@ export const Request = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  
+  const customer = useSelector(state => state.customers.customer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
@@ -123,12 +123,12 @@ export const Request = () => {
             <label>Investor ID</label>
             <input 
               type="text" 
-              value={newReq.id}
+              value={customer.id}
               onChange={e => setNewReq({...newReq, id: e.target.value})}
               placeholder="Enter your  ID"
-              className={formErrors.id ? "error" : ""}
+              //className={formErrors.id ? "error" : ""}
             />
-            {formErrors.id && <span className="error-message">{formErrors.id}</span>}
+            {/* {formErrors.id && <span className="error-message">{formErrors.id}</span>} */}
           </div>
           
           <div className="form-group">
@@ -171,7 +171,7 @@ export const Request = () => {
             <label>Investment Range</label>
             <select 
               value={newReq.Range}
-          debugger
+        
               onChange={e => setNewReq({...newReq, Range:parseInt( e.target.value)})}
               className={formErrors.Range ? "error" : ""}
             >

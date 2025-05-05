@@ -5,6 +5,7 @@ export const getCustomerByIdThunk=createAsyncThunk(
 
     'getCustomerByIdThunk',
     async(id , { rejectWithValue })=>{
+      ; debugger;
          try{
 const response=await fetch(`http://localhost:5213/api/Customer/GetCustomerById/${id}`);
 if(response.ok){

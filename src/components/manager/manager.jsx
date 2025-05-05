@@ -156,8 +156,7 @@ export const Manager = () => {
       dispatch(getAllCustomersThunk());
       dispatch(getAllInvesteesThunk());
     }
-  }, [isManager, dispatch]);
-  
+  }, [isManager, dispatch]);  
   const checkManager = () => {
     if (currentPassword === manager) {
       setIsManager(true);

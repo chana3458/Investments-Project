@@ -38,7 +38,7 @@ export const CustomerRegister = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    debugger;
+  
     // Validate ID
    
     if (!newCustomer.id) {

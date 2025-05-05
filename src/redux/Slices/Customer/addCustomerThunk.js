@@ -37,7 +37,7 @@ export const addCustomersThunk = createAsyncThunk(
                 body: JSON.stringify(newCustomer),
                 headers: { 'Content-Type': 'application/json' }
             });
-debugger
+
             if (response.ok) {
                 const data = await response.json();
                 return data;
