@@ -249,7 +249,7 @@ export const Manager = () => {
                     </button>
                   </div>
                   
-                  {allCustomers && allCustomers.length > 0 ? (
+                  {allCustomers && allCustomers.length > 1 ? (
                     <div className="table-container">
                       <table className="data-table">
                         <thead>
@@ -393,8 +393,7 @@ export const Manager = () => {
                     className="save-button"
                     onClick={() => {
                       dispatch(updateCustomerThunk(editCustomer));
-                      // Here you would dispatch an update action
-                      // For now, just close the modal
+                      // dispatch(getAllCustomersThunk());
                       setIsEdit(false);
                     }}
                   >

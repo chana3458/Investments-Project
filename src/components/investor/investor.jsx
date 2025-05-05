@@ -106,8 +106,9 @@ export const Investor = () => {
           
           <div className={`highlight-card lowest-risk ${isLoaded ? 'loaded' : ''}`}>
             <div className="card-badge">Lowest Risk</div>
-            <h3>{investmentData.lowestRisk.name}</h3>
-            <div className="card-stats">
+            <h3>{investmentData.lowestRisk.name}</h3># Investment Portfolio Tracker
+
+         <div className="card-stats">
               <div className="stat">
                 <span className="stat-label">Return</span>
                 <span className="stat-value">{investmentData.lowestRisk.return}</span>
