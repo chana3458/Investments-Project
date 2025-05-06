@@ -570,22 +570,22 @@ export const Manager = () => {
 
                           <div className="investee-details">
                             <div className="detail-item">
-                              <span className="detail-icon">🆔</span>
+                              {/* <span className="detail-icon">🆔</span> */}
                               <span className="detail-label">ID:</span>
                               <span className="detail-value">{investee.id}</span>
                             </div>
                             <div className="detail-item">
-                              <span className="detail-icon">📞</span>
+                              {/* <span className="detail-icon">📞</span> */}
                               <span className="detail-label">Phone:</span>
                               <span className="detail-value">{investee.phoneNumber}</span>
                             </div>
                             <div className="detail-item">
-                              <span className="detail-icon">📍</span>
+                              {/* <span className="detail-icon">📍</span> */}
                               <span className="detail-label">Address:</span>
                               <span className="detail-value">{investee.address}</span>
                             </div>
                             <div className="detail-item">
-                              <span className="detail-icon">🏢</span>
+                              {/* <span className="detail-icon">🏢</span> */}
                               <span className="detail-label">Properties:</span>
                               <span className="detail-value">3</span>
                             </div>
@@ -599,7 +599,7 @@ export const Manager = () => {
                                 alert(`Viewing details for ${investee.name}`);
                               }}
                             >
-                              <span className="action-icon">👁️</span>
+                              {/* <span className="action-icon">👁️</span> */}
                               View
                             </button>
                             <button
@@ -610,7 +610,7 @@ export const Manager = () => {
                                 setIsEdit2(true);
                               }}
                             >
-                              <span className="action-icon">✏️</span>
+                              {/* <span className="action-icon">✏️</span> */}
                               Edit
                             </button>
                             <button
@@ -620,7 +620,7 @@ export const Manager = () => {
                                 setInsure2(true);
                               }}
                             >
-                              <span className="action-icon">🗑️</span>
+                              {/* <span className="action-icon">🗑️</span> */}
                               Delete
                             </button>
                           </div>
@@ -694,19 +694,19 @@ export const Manager = () => {
                                     alert(`Viewing details for Request #${request.id}`);
                                   }}
                                 >
-                                  <span className="action-icon">👁️</span>
+                                  {/* <span className="action-icon">👁️</span> */}
                                 </button>
                                 <button
                                   className="approve-button"
                                   onClick={() => approveRequest(request.id)}
                                 >
-                                  <span className="action-icon">✅</span>
+                                  {/* <span className="action-icon">✅</span> */}
                                 </button>
                                 <button
                                   className="reject-button"
                                   onClick={() => rejectRequest(request.id)}
                                 >
-                                  <span className="action-icon">❌</span>
+                                  {/* <span className="action-icon">❌</span> */}
                                 </button>
                               </td>
                             </tr>
@@ -1113,7 +1113,7 @@ export const Manager = () => {
                     onClick={() => {
                       setInsure(false);
                       dispatch(delCustomerThunk(currentId));
-                      dispatch(getAllCustomersThunk());
+                      // dispatch(getAllCustomersThunk());
                     }}
                   >
                     Delete Permanently
@@ -1147,7 +1147,7 @@ export const Manager = () => {
                     onClick={() => {
                       setInsure2(false);
                       dispatch(deleteInvesteeThunk(currentId2));
-                      dispatch(getAllInvesteesThunk());
+                      // dispatch(getAllInvesteesThunk());
                     }}
                   >
                     Delete Permanently
