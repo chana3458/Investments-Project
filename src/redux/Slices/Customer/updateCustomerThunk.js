@@ -4,7 +4,7 @@
   export const updateCustomerThunk = createAsyncThunk(
       'updateCustomerThunk',
       async (event) => {
-          
+          debugger;
           const response = await fetch('http://localhost:5213/api/Customer/UpdateCustomer',
               {
                   method: 'PUT',
@@ -15,6 +15,7 @@
               }
           );
           const data = await response.json();
+          console.log(data);    
           if (!data || data.error) {
               throw new Error(data?.error || 'Invalid response from server');
           }
