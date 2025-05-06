@@ -3,6 +3,7 @@ import { getCustomerByIdThunk } from "../../redux/Slices/Customer/getCustomerByI
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./personalDetails.css";
+import { updateCustomerThunk } from "../../redux/Slices/Customer/updateCustomerThunk";
 
 export const PersonalDetails = () => {
   const [id, setId] = useState("");
@@ -17,21 +18,55 @@ export const PersonalDetails = () => {
   const [appointmentTopic, setAppointmentTopic] = useState("");
   const [appointmentSuccess, setAppointmentSuccess] = useState(false);
 
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
+  // const [updatedName, setUpdatedName] = useState("");
+  // const [updatedPhone, setUpdatedPhone] = useState("");
+  // const [updatedAddress, setUpdatedAddress] = useState("");
+ 
+  
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const customer = useSelector(state => state.customers.customer);
   const isCustomer = useSelector(state => state.customers.isCustomer);
   const allCustomers = useSelector(state => state.customers.customers);
-  // Get customer requests from Redux store
-  // const customerRequests = useSelector(state => 
-  //   state.requests?.requests?.filter(req => req.customerId === customer?.id) || []
-  // );
-  const customerRequests = useSelector(state => state.customers.customer?.requestDetails || []);   //const customerRequests = useSelector(state => state.customers.customer.requestsDetails);
+  const [editCustomer, setEditCustomer] = useState({
+    id: "", // Use customer.id if available
+    name: "", 
+    phoneNumber: "",
+    address: "", 
+  });
+  
 
+   const customerRequests = useSelector(state => state.customers.customer?.requestDetails || []);
+  //const customerRequests =customer.requestDetails;
 
   useEffect(() => {
     setIsLoaded(true);
+   setEditCustomer({
+   id: customer.id,
+    name: customer.name,
+    phoneNumber: customer.phoneNumber,
+    address: customer.address,
+  });
+  }, [customer]);
+
+
+  useEffect(() => {
+    
   }, []);
+  
+
+const logOut = () => {
+  navigate('/home')
+  
+    // רענון הדף יאפס את כל הסטייט
+    window.location.href = '/home';
+ 
+
+
+}
 
   const handleLogin = async () => {
     if (!id.trim())
@@ -62,7 +97,7 @@ export const PersonalDetails = () => {
 
   const getReq = async () => {
     setViewReq(true);
-    //dispatch(getCustomerByIdThunk(customer.id));
+    dispatch(getCustomerByIdThunk(customer.id));
   };
 
   const handleScheduleAppointment = () => {
@@ -95,8 +130,28 @@ export const PersonalDetails = () => {
     }
   };
 
+  const handleUpdateProfile =async () => {  
+    debugger;
+    await dispatch(updateCustomerThunk(editCustomer)); 
+    await dispatch(getCustomerByIdThunk(customer.id));
+  //  alert("Profile updated successfully!");  
+    
+    // Show success message and reset form
+    setUpdateSuccess(true);
+    setTimeout(() => {
+      setUpdateSuccess(false);
+      setShowUpdateForm(false);
+    }, 3000);
+  
+  };
+
+
+
   return (
+
     <div className="personal-details-container">
+
+
       {!isCustomer ? (
         <div className={`login-panel ${isLoaded ? 'loaded' : ''}`}>
           <div className="login-header">
@@ -146,6 +201,9 @@ export const PersonalDetails = () => {
             </div>
             <button className="logout-button" onClick={() => navigate('/home')}>
               Exit Dashboard
+            </button>
+            <button className="logout-button" onClick={() => logOut()}>
+              Log out
             </button>
           </div>
 
@@ -197,6 +255,7 @@ export const PersonalDetails = () => {
                     </button>
                   </div>
                 )}
+                
               </div>
             ) : (
               <>
@@ -248,7 +307,7 @@ export const PersonalDetails = () => {
                       <p>Book a consultation with our investment advisors</p>
                     </div>
 
-                    <div className="action-item">
+                    <div className="action-item"onClick={() =>setShowUpdateForm(true) }>
                       <div className="action-icon">⚙️</div>
                       <h3>Account Settings</h3>
                       <p>Update your personal information and preferences</p>
@@ -337,8 +396,84 @@ export const PersonalDetails = () => {
               </div>
             </div>
           )}
+
+{/* Update Profile Modal */}
+{showUpdateForm && (
+  <div className="modal-overlay">
+    <div className="schedule-modal">
+      <div className="modal-header">
+        <h2>Update Personal Details</h2>
+        <button className="close-button" onClick={() => setShowUpdateForm(false)}>×</button>
+      </div>
+      <div className="modal-body">
+        {updateSuccess ? (
+          <div className="success-message">
+            <div className="success-icon">✓</div>
+            <h3>Profile Updated!</h3>
+            <p>Your personal details have been successfully updated.</p>
+          </div>
+        ) : (
+          <form className="appointment-form">
+            <div className="form-group">
+              <label htmlFor="update-name">Full Name</label>
+              <input
+                type="text"
+                id="update-name"
+                value={editCustomer.name}
+                onChange={e => setEditCustomer({...editCustomer, name: e.target.value})}
+               
+                //  placeholder={"insert name"}
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="update-phone">Phone Number</label>
+              <input
+                type="tel"
+                id="update-phone"
+                value={editCustomer.phoneNumber}
+                onChange={e => setEditCustomer({...editCustomer, phoneNumber: e.target.value})}
+                // placeholder={customer.phoneNumber}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="update-address">Address</label>
+              <input
+                type="text"
+                id="update-address"
+                value={editCustomer.address}
+                onChange={e => setEditCustomer({...editCustomer, address: e.target.value})}
+                // placeholder={customer.address}
+              />
+            </div>
+            <div className="form-actions">
+              <button
+                type="button"
+                className="cancel-button"
+                onClick={() => setShowUpdateForm(false)}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="submit-button"
+                onClick={handleUpdateProfile}
+              >
+                Update Profile
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
+
         </div>
       )}
+
+      
     </div>
   );
 };

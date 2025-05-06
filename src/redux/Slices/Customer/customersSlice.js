@@ -10,21 +10,20 @@ const INITIAL_STATE_CUSTOMER = {
     isCustomer: false,
     customer: {
 
-    id:"",
-    name:"",
-    phoneNumber:"",
-    address:"",
-    requestDetails:[]
-    
+        id: "",
+        name: "",
+        phoneNumber: "",
+        address: "",
+        requestsDetails: []
     },
     customers: [{
 
-id:"",
-name:"",
-phoneNumber:"",
-address:"",
-requestDetails:[]
-}]
+        id: "",
+        name: "",
+        phoneNumber: "",
+        address: "",
+        requests: []
+    }]
 }
 
 
