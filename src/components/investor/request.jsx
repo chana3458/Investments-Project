@@ -65,14 +65,15 @@ export const Request = () => {
   
   useEffect(() => {
     setIsLoaded(true);
+    setNewReq({...newReq,id:customer.id});
   }, []);
   
   const validateForm = () => {
     let errors = {};
     
-    if (!newReq.id.trim()) {
-      errors.id = "ID is required";
-    }
+    // if (!newReq.id.trim()) {
+    //   errors.id = "ID is required";
+    // }
     
     if (!newReq.Budget.trim()) {
       errors.Budget = "Budget is required";
@@ -93,10 +94,17 @@ export const Request = () => {
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
-  
+ 
   const handleSubmit = async () => {
+    
     if (validateForm()) {
+    
+     
       setIsSubmitting(true);
+      alert(customer.id);
+      debugger
+      
+    
       try {
         await dispatch(addRequestThunk(newReq));
         alert("Investment request submitted successfully!");
@@ -124,7 +132,8 @@ export const Request = () => {
             <input 
               type="text" 
               value={customer.id}
-              onChange={e => setNewReq({...newReq, id: e.target.value})}
+ 
+              
               placeholder="Enter your  ID"
               //className={formErrors.id ? "error" : ""}
             />

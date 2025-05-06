@@ -14,7 +14,8 @@ customer:{
     name:"",
     phoneNumber:"",
     address:"",
-    requestsDetails:[]
+    requestDetails:[]
+    
     },
 customers:[{
 
@@ -22,7 +23,7 @@ id:"",
 name:"",
 phoneNumber:"",
 address:"",
-requests:[]
+requestDetails:[]
 }]
 }
 
