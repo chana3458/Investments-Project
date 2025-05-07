@@ -352,7 +352,7 @@ export const Information = () => {
               <button className="primary-button" onClick={() => navigate('/investments')}>
                 Browse Investments
               </button>
-              <button className="secondary-button" onClick={() => navigate('/register')}>
+              <button className="secondary-button" onClick={() => navigate('/CustomerRegister')}>
                 Create Account
               </button>
             </div>

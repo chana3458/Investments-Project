@@ -228,7 +228,6 @@ const logOut = () => {
                       <div className="request-header-cell">PhoneNumber</div>
                     </div>
 
-
                     {customerRequests.map(request => (
                       <div key={request.id} className="request-item">
                         <div className="request-cell">{request.id}</div>
@@ -393,7 +392,6 @@ const logOut = () => {
                       </div>
                     </form>
                   )}
-
                 </div>
               </div>
             </div>
