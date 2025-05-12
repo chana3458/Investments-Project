@@ -17,7 +17,7 @@ ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tool
 export const Manager = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector(state => state.customers.customers);
-  const allInvestees = useSelector(state => state.investees.investees);
+  const allInvestees = useSelector(state => state.investees.investees|| []);
   const allRequests = useSelector(state => state.requests?.requests || []);
 
   const [isManager, setIsManager] = useState(false);
@@ -43,7 +43,7 @@ export const Manager = () => {
     pendingRequestsCount: 0,
     recentActivity: []
   });
-
+  const navigate = useNavigate();
   const [editInvestee, setEditInvestee] = useState({
     id: "",
     name: "",
@@ -122,8 +122,8 @@ export const Manager = () => {
 
     // Pre-fetch data if manager is logged in
     if (isManager) {
-      dispatch(getAllCustomersThunk());
-      dispatch(getAllInvesteesThunk());
+      // dispatch(getAllCustomersThunk());
+      // dispatch(getAllInvesteesThunk());
       // Add dispatch for requests when available
     }
   }, [isManager, dispatch, allCustomers, allInvestees]);
@@ -134,8 +134,7 @@ export const Manager = () => {
       setLoginError(false);
 
       // Fetch data immediately after login
-      dispatch(getAllCustomersThunk());
-      dispatch(getAllInvesteesThunk());
+     
     } else {
       setLoginError(true);
     }
@@ -166,16 +165,19 @@ export const Manager = () => {
       customer.address?.toLowerCase().includes(searchTerm.toLowerCase()))
   ) || [];
 
-  const filteredInvestees = allInvestees?.filter(investee =>
-    investee.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    investee.phoneNumber?.includes(searchTerm) ||
-    investee.address?.toLowerCase().includes(searchTerm.toLowerCase())
-  ) || [];
+  const filteredInvestees = Array.isArray(allInvestees)
+  ? allInvestees.filter(investee =>
+      investee.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      investee.phoneNumber?.includes(searchTerm) ||
+      investee.address?.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  : [];
+
 
   return (
     <div className="manager-container">
       {!isManager ? (
-        <div className={`login-panel ${isLoaded ? 'loaded' : ''}`}>
+        <div className={`login-panel2 ${isLoaded ? 'loaded' : ''}`}>
           <div className="login-header">
             <div className="manager-icon">🤵🏻</div>
             <h1>Manager Portal</h1>
@@ -197,14 +199,14 @@ export const Manager = () => {
               {loginError && <div className="error-message">Invalid password. Please try again.</div>}
             </div>
 
-            <div className="login-actions">
+            <div className="login-actions2">
               <button className="login-button" onClick={checkManager}>Login</button>
               {/* <button className="back-button" onClick={() => navigate('/home')}>Back to Home</button> */}
             </div>
           </div>
         </div>
       ) : (
-        <div className={`dashboard-container ${isLoaded ? 'loaded' : ''}`}>
+        <div className={`dashboard-container2 ${isLoaded ? 'loaded' : ''}`}>
           <div className="dashboard-sidebar">
             <div className="sidebar-header">
               <h2>Investment Manager</h2>
@@ -253,7 +255,7 @@ export const Manager = () => {
             </nav>
 
             <div className="sidebar-footer">
-              <button className="logout-button" >
+              <button className="logout-button"onClick={() => navigate('/home')} >
                 <span className="nav-icon">🚪</span>
                 Exit Dashboard
               </button>
@@ -261,7 +263,7 @@ export const Manager = () => {
           </div>
 
           <div className="dashboard-main">
-            <div className="dashboard-header">
+            <div className="dashboard-header2">
               <div className="header-title">
                 {activeTab === 'dashboard' && <h1>Dashboard Overview</h1>}
                 {activeTab === 'investors' && <h1>Investor Management</h1>}
@@ -325,8 +327,8 @@ export const Manager = () => {
                 <button
                   className="refresh-button"
                   onClick={() => {
-                    dispatch(getAllCustomersThunk());
-                    dispatch(getAllInvesteesThunk());
+                    // dispatch(getAllCustomersThunk());
+                    // dispatch(getAllInvesteesThunk());
                   }}
                 >
                   🔄 Refresh
@@ -444,7 +446,7 @@ export const Manager = () => {
 
                   <div className="quick-actions">
                     <h3>Quick Actions</h3>
-                    <div className="action-buttons">
+                    <div className="action-buttons2">
                       <button onClick={() => setActiveTab('investors')}>
                         <span className="action-icon">👥</span>
                         Manage Investors
@@ -510,7 +512,7 @@ export const Manager = () => {
                                     alert(`Viewing details for ${customer.name}`);
                                   }}
                                 >
-                                  <span className="action-icon">👁️</span>
+                                  {/* <span className="action-icon">👁️</span> */}
                                 </button>
                                 <button
                                   className="edit-button"
@@ -520,7 +522,7 @@ export const Manager = () => {
                                     setIsEdit(true);
                                   }}
                                 >
-                                  <span className="action-icon">✏️</span>
+                                  {/* <span className="action-icon">✏️</span> */}
                                 </button>
                                 <button
                                   className="delete-button"
@@ -529,7 +531,7 @@ export const Manager = () => {
                                     setInsure(true);
                                   }}
                                 >
-                                  <span className="action-icon">🗑️</span>
+                                  {/* <span className="action-icon">🗑️</span> */}
                                 </button>
                               </td>
                             </tr>
@@ -777,8 +779,8 @@ export const Manager = () => {
 
                     <div className="report-card">
                       <div className="report-header">
-                      
-                      <h3>User Activity</h3>
+
+                        <h3>User Activity</h3>
                         <button className="export-button">
                           <span className="action-icon">📊</span>
                           Export
