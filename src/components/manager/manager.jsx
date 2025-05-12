@@ -128,7 +128,7 @@ export const Manager = () => {
     }
   }, [isManager, dispatch, allCustomers, allInvestees]);
 
-  const checkManager = () => {
+  const checkManager = async() => {
     if (currentPassword === manager) {
       setIsManager(true);
       setLoginError(false);
@@ -777,8 +777,8 @@ export const Manager = () => {
 
                     <div className="report-card">
                       <div className="report-header">
-                      
-                      <h3>User Activity</h3>
+
+                        <h3>User Activity</h3>
                         <button className="export-button">
                           <span className="action-icon">📊</span>
                           Export

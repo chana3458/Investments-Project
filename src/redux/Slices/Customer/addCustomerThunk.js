@@ -31,6 +31,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const addCustomersThunk = createAsyncThunk(
     'addCustomersThunk',
     async (newCustomer, { rejectWithValue }) => {
+        debugger;
         try {
             const response = await fetch(`http://localhost:5213/api/Customer/AddCustomer`, {
                 method: 'POST',
@@ -39,6 +40,7 @@ export const addCustomersThunk = createAsyncThunk(
             });
 
             if (response.ok) {
+                alert("Customer added successfully!");  
                 const data = await response.json();
                 return data;
             } else {
@@ -47,6 +49,7 @@ export const addCustomersThunk = createAsyncThunk(
                 return rejectWithValue(errorData || { message: `שגיאת שרת: ${response.status} ${response.statusText}` });
             }
         } catch (error) {
+            alert(error.message+"ohohoh");
             return rejectWithValue({ message: error.message || 'אירעה שגיאה בעת התקשורת עם השרת' });
         }
     }
