@@ -144,7 +144,7 @@ export const CustomerRegister = () => {
           ...newCustomer,
           riskLevel: riskLevel
         };
-        
+        debugger;
         await dispatch(addCustomersThunk(customerWithRisk));
         alert("Registration successful!");
 

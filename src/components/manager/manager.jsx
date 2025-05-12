@@ -128,7 +128,7 @@ export const Manager = () => {
     }
   }, [isManager, dispatch, allCustomers, allInvestees]);
 
-  const checkManager = () => {
+  const checkManager = async() => {
     if (currentPassword === manager) {
       setIsManager(true);
       setLoginError(false);
