@@ -26,6 +26,13 @@ export const Information = () => {
         
             Explore Opportunities
           </button>
+          <br></br><br></br>
+          <button 
+              className="cta-button" 
+              onClick={() => navigate(`/home`)}
+            >
+              Back to Home
+            </button>
         </div>
       </div>
       
@@ -353,7 +360,8 @@ export const Information = () => {
               real estate investment opportunities.
             </p>
             <div className="cta-buttons">
-              <button className="primary-button" onClick={() => navigate('/investments')}>
+              <button className="primary-button" onClick={() => {navigate('/investments');
+            dispatch(getAllInvestmentsThunk)}}>
                 Browse Investments
               </button>
               <button className="secondary-button" onClick={() => navigate('/CustomerRegister')}>

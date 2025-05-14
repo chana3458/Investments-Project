@@ -330,6 +330,9 @@
     font-size: 0.9rem;
     cursor: pointer;
     transition: var(--transition);
+    justify-content: space-between;
+  
+    
   }
   
   .logout-button:hover {

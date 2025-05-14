@@ -255,7 +255,7 @@ export const Manager = () => {
             </nav>
 
             <div className="sidebar-footer">
-              <button className="logout-button"onClick={() => navigate('/home')} >
+              <button className="logout-button2"onClick={() => navigate('/home')} >
                 <span className="nav-icon">🚪</span>
                 Exit Dashboard
               </button>

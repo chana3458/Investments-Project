@@ -541,7 +541,9 @@ export const Investments = () => {
   }, []);
 
   const filteredInvestments = availableInvestments.filter(investment => {
-    if (activeFilter !== "all" && investment.type !== activeFilter) {
+    debugger
+    if (activeFilter !== "all" && investment.type.trim() !== activeFilter.trim()) {
+   
       return false;
     }
     if (searchTerm && !investment.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -586,10 +588,12 @@ export const Investments = () => {
           >
             All Businesses
           </button>
+          
           <button 
             className={`filter-button ${activeFilter === 'food & beverage' ? 'active' : ''}`}
             onClick={() => setActiveFilter('food & beverage')}
           >
+            
             Food & Beverage
           </button>
           <button 

@@ -199,12 +199,7 @@ const logOut = () => {
               <h1>Welcome, {customer.name}!</h1>
               <p>Your personal investment dashboard</p>
             </div>
-            <button className="logout-button" onClick={() => navigate('/home')}>
-              Exit Dashboard
-            </button>
-            <button className="logout-button" onClick={() => logOut()}>
-              Log out
-            </button>
+           
           </div>
 
           <div className="dashboard-content">
@@ -317,7 +312,12 @@ const logOut = () => {
               </>
             )}
           </div>
-
+          <button className="logout-button" onClick={() => navigate('/home')}>
+              Exit Dashboard
+            </button>
+            <button className="logout-button" onClick={() => logOut()}>
+              Log out
+            </button>
           {/* Schedule Appointment Modal */}
           {showScheduleForm && (
             <div className="modal-overlay">
