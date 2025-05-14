@@ -19,19 +19,18 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./investor.css";
+import { useSelector } from "react-redux";
 
 export const Investor = () => {
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
-  
+  const allInvestments = useSelector(state => state.investments.investments);
   // Sample investment data - in a real app, this would come from an API
   const investmentData = {
-    highestReturn: {
-      name: "Downtown Commercial Complex",
-      return: "18.5%",
-      type: "Commercial",
-      risk: "High"
-    },
+    
+    highestReturn: allInvestments.reduce((max, investment) => {
+      return investment.roi > max.roi ? investment : max;
+    }, allInvestments[0]),
     lowestRisk: {
       name: "Suburban Residential Development",
       return: "8.2%",
@@ -86,11 +85,11 @@ export const Investor = () => {
         <div className="investment-highlights">
           <div className={`highlight-card highest-return ${isLoaded ? 'loaded' : ''}`}>
             <div className="card-badge">Highest Return</div>
-            <h3>{investmentData.highestReturn.name}</h3>
+            <h3>{investmentData.highestReturn.title}</h3>
             <div className="card-stats">
               <div className="stat">
                 <span className="stat-label">Return</span>
-                <span className="stat-value">{investmentData.highestReturn.return}</span>
+                <span className="stat-value">{investmentData.highestReturn.roi}</span>
               </div>
               <div className="stat">
                 <span className="stat-label">Type</span>
@@ -98,7 +97,7 @@ export const Investor = () => {
               </div>
               <div className="stat">
                 <span className="stat-label">Risk</span>
-                <span className="stat-value risk-high">{investmentData.highestReturn.risk}</span>
+                {/* <span className="stat-value risk-high">{investmentData.highestReturn.ris}</span> */}
               </div>
             </div>
             <button className="view-button">View Details</button>
@@ -106,9 +105,11 @@ export const Investor = () => {
           
           <div className={`highlight-card lowest-risk ${isLoaded ? 'loaded' : ''}`}>
             <div className="card-badge">Lowest Risk</div>
-            <h3>{investmentData.lowestRisk.name}</h3># Investment Portfolio Tracker
 
-         <div className="card-stats">
+
+
+            <h3>{investmentData.lowestRisk.name}</h3>
+            <div className="card-stats">
               <div className="stat">
                 <span className="stat-label">Return</span>
                 <span className="stat-value">{investmentData.lowestRisk.return}</span>
@@ -167,5 +168,5 @@ export const Investor = () => {
       </div>
     </div>
   );
-};
 
+};

@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./information.css";
+import { useDispatch } from "react-redux";
+import { getAllInvestmentsThunk } from "../../redux/Slices/Investments/getAllInvestmentsThunk";
 
 export const Information = () => {
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
-  
+  const dispatch = useDispatch();
   useEffect(() => {
     setIsLoaded(true);
     
-    // Scroll to top when component mounts
+ 
     window.scrollTo(0, 0);
   }, []);
   
@@ -19,9 +21,18 @@ export const Information = () => {
         <div className="hero-content">
           <h1>Transforming Real Estate Investment</h1>
           <p>Making premium real estate opportunities accessible to everyone</p>
-          <button className="cta-button" onClick={() => navigate('/investments')}>
+          <button className="cta-button" onClick={() => {navigate('/investments');
+        dispatch(getAllInvestmentsThunk());}}>
+        
             Explore Opportunities
           </button>
+          <br></br><br></br>
+          <button 
+              className="cta-button" 
+              onClick={() => navigate(`/home`)}
+            >
+              Back to Home
+            </button>
         </div>
       </div>
       
@@ -349,7 +360,8 @@ export const Information = () => {
               real estate investment opportunities.
             </p>
             <div className="cta-buttons">
-              <button className="primary-button" onClick={() => navigate('/investments')}>
+              <button className="primary-button" onClick={() => {navigate('/investments');
+            dispatch(getAllInvestmentsThunk)}}>
                 Browse Investments
               </button>
               <button className="secondary-button" onClick={() => navigate('/CustomerRegister')}>
