@@ -232,7 +232,7 @@
 //               <div className="investment-details">
 //                 <h2>{investment.title}</h2>
 //                 <div className="investment-location">
-//                   <span className="location-icon">📍</span> {investment.location}
+//                   <span className="location-icon"></span> {investment.location}
 //                 </div>
                 
 //                 <div className="investment-stats">
@@ -309,7 +309,7 @@
 //               <div className="modal-header">
 //                 <h2>{selectedInvestment.title}</h2>
 //                 <div className="investment-location">
-//                   <span className="location-icon">📍</span> {selectedInvestment.location}
+//                   <span className="location-icon"></span> {selectedInvestment.location}
 //                 </div>
 //               </div>
               
@@ -434,113 +434,116 @@ export const Investments = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedInvestment, setSelectedInvestment] = useState(null);
-
+  const availableInvestments = useSelector(state => state.investments.investments);
+  let newFeatures="";
   // דוגמת נתונים של עסקים להשקעה
-  const [availableInvestments, setAvailableInvestments] = useState([
-    {
-      id: "biz1",
-      title: "Coffee Shop Chain",
-      location: "Tel Aviv, Israel",
-      type: "food & beverage",
-      price: 1200000,
-      roi: 18.3,
-      term: 36, // חודשים
-      minInvestment: 30000,
-      description: "Established coffee shop chain with 5 branches in prime locations. Strong customer base and growing revenue.",
-      features: ["5 Branches", "Loyal Customers", "Franchise Potential", "Modern Equipment", "Experienced Staff"],
-      images: ["https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-      investmentProgress: 70,
-      investorCount: 12,
-      expectedCompletion: "2024-11-01"
-    },
-    {
-      id: "biz2",
-      title: "Tech Startup - SaaS Platform",
-      location: "Jerusalem, Israel",
-      type: "technology",
-      price: 3500000,
-      roi: 25.7,
-      term: 48,
-      minInvestment: 100000,
-      description: "Innovative SaaS platform with a growing user base and recurring revenue model. Positioned for rapid scale.",
-      features: ["SaaS Model", "Recurring Revenue", "Scalable", "Experienced Team", "Patented Technology"],
-      images: ["https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-      investmentProgress: 55,
-      investorCount: 8,
-      expectedCompletion: "2025-04-15"
-    },
-    {
-      id: "biz3",
-      title: "Boutique Hotel",
-      location: "Eilat, Israel",
-      type: "hospitality",
-      price: 4800000,
-      roi: 14.2,
-      term: 60,
-      minInvestment: 150000,
-      description: "Charming boutique hotel with 30 rooms located in a prime tourist area. High occupancy rates year-round.",
-      features: ["30 Rooms", "Prime Location", "High Occupancy", "Spa & Wellness", "Restaurant"],
-      images: ["https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-      investmentProgress: 40,
-      investorCount: 10,
-      expectedCompletion: "2025-09-30"
-    },
-    {
-      id: "biz4",
-      title: "Organic Farm",
-      location: "Galilee, Israel",
-      type: "agriculture",
-      price: 900000,
-      roi: 12.8,
-      term: 36,
-      minInvestment: 20000,
-      description: "Sustainable organic farm producing fresh vegetables and fruits with established distribution channels.",
-      features: ["Organic Certified", "Greenhouse Facilities", "Distribution Network", "Experienced Farmers", "Eco-Friendly"],
-      images: ["https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-      investmentProgress: 80,
-      investorCount: 15,
-      expectedCompletion: "2024-10-10"
-    },
-    {
-      id: "biz5",
-      title: "Fitness Center Chain",
-      location: "Haifa, Israel",
-      type: "health & wellness",
-      price: 2200000,
-      roi: 16.5,
-      term: 48,
-      minInvestment: 50000,
-      description: "Three fitness centers with modern equipment and loyal membership base. Opportunities for expansion.",
-      features: ["3 Locations", "Modern Equipment", "Personal Trainers", "Group Classes", "Membership Growth"],
-      images: ["https://images.unsplash.com/photo-1554284126-1e8e4a0b8b3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-      investmentProgress: 60,
-      investorCount: 9,
-      expectedCompletion: "2025-02-20"
-    },
-    {
-      id: "biz6",
-      title: "E-commerce Retailer",
-      location: "Beer Sheva, Israel",
-      type: "retail",
-      price: 1800000,
-      roi: 20.1,
-      term: 36,
-      minInvestment: 40000,
-      description: "Fast-growing online retailer specializing in electronics with strong brand recognition and customer loyalty.",
-      features: ["Online Platform", "Strong Brand", "Customer Loyalty", "Fast Delivery", "Diverse Product Range"],
-      images: ["https://images.unsplash.com/photo-1515165562835-cb8a7a0f1e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-      investmentProgress: 75,
-      investorCount: 14,
-      expectedCompletion: "2024-12-05"
-    }
-  ]);
+  //const [availableInvestments, setAvailableInvestments] = useState([
+  //   {
+  //     id: "biz1",
+  //     title: "Coffee Shop Chain",
+  //     location: "Tel Aviv, Israel",
+  //     type: "food & beverage",
+  //     price: 1200000,
+  //     roi: 18.3,
+  //     term: 36, // חודשים
+  //     minInvestment: 30000,
+  //     description: "Established coffee shop chain with 5 branches in prime locations. Strong customer base and growing revenue.",
+  //     features: ["5 Branches", "Loyal Customers", "Franchise Potential", "Modern Equipment", "Experienced Staff"],
+  //     images: ["https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
+  //     investmentProgress: 70,
+  //     investorCount: 12,
+  //     expectedCompletion: "2024-11-01"
+  //   },
+  //   {
+  //     id: "biz2",
+  //     title: "Tech Startup - SaaS Platform",
+  //     location: "Jerusalem, Israel",
+  //     type: "technology",
+  //     price: 3500000,
+  //     roi: 25.7,
+  //     term: 48,
+  //     minInvestment: 100000,
+  //     description: "Innovative SaaS platform with a growing user base and recurring revenue model. Positioned for rapid scale.",
+  //     features: ["SaaS Model", "Recurring Revenue", "Scalable", "Experienced Team", "Patented Technology"],
+  //     images: ["https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
+  //     investmentProgress: 55,
+  //     investorCount: 8,
+  //     expectedCompletion: "2025-04-15"
+  //   },
+  //   {
+  //     id: "biz3",
+  //     title: "Boutique Hotel",
+  //     location: "Eilat, Israel",
+  //     type: "hospitality",
+  //     price: 4800000,
+  //     roi: 14.2,
+  //     term: 60,
+  //     minInvestment: 150000,
+  //     description: "Charming boutique hotel with 30 rooms located in a prime tourist area. High occupancy rates year-round.",
+  //     features: ["30 Rooms", "Prime Location", "High Occupancy", "Spa & Wellness", "Restaurant"],
+  //     images: ["https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
+  //     investmentProgress: 40,
+  //     investorCount: 10,
+  //     expectedCompletion: "2025-09-30"
+  //   },
+  //   {
+  //     id: "biz4",
+  //     title: "Organic Farm",
+  //     location: "Galilee, Israel",
+  //     type: "agriculture",
+  //     price: 900000,
+  //     roi: 12.8,
+  //     term: 36,
+  //     minInvestment: 20000,
+  //     description: "Sustainable organic farm producing fresh vegetables and fruits with established distribution channels.",
+  //     features: ["Organic Certified", "Greenhouse Facilities", "Distribution Network", "Experienced Farmers", "Eco-Friendly"],
+  //     images: ["https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
+  //     investmentProgress: 80,
+  //     investorCount: 15,
+  //     expectedCompletion: "2024-10-10"
+  //   },
+  //   {
+  //     id: "biz5",
+  //     title: "Fitness Center Chain",
+  //     location: "Haifa, Israel",
+  //     type: "health & wellness",
+  //     price: 2200000,
+  //     roi: 16.5,
+  //     term: 48,
+  //     minInvestment: 50000,
+  //     description: "Three fitness centers with modern equipment and loyal membership base. Opportunities for expansion.",
+  //     features: ["3 Locations", "Modern Equipment", "Personal Trainers", "Group Classes", "Membership Growth"],
+  //     images: ["https://images.unsplash.com/photo-1554284126-1e8e4a0b8b3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
+  //     investmentProgress: 60,
+  //     investorCount: 9,
+  //     expectedCompletion: "2025-02-20"
+  //   },
+  //   {
+  //     id: "biz6",
+  //     title: "E-commerce Retailer",
+  //     location: "Beer Sheva, Israel",
+  //     type: "retail",
+  //     price: 1800000,
+  //     roi: 20.1,
+  //     term: 36,
+  //     minInvestment: 40000,
+  //     description: "Fast-growing online retailer specializing in electronics with strong brand recognition and customer loyalty.",
+  //     features: ["Online Platform", "Strong Brand", "Customer Loyalty", "Fast Delivery", "Diverse Product Range"],
+  //     images: ["https://images.unsplash.com/photo-1515165562835-cb8a7a0f1e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
+  //     investmentProgress: 75,
+  //     investorCount: 14,
+  //     expectedCompletion: "2024-12-05"
+  //   }
+  // ]);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
   const filteredInvestments = availableInvestments.filter(investment => {
-    if (activeFilter !== "all" && investment.type !== activeFilter) {
+    debugger
+    if (activeFilter !== "all" && investment.type.trim() !== activeFilter.trim()) {
+   
       return false;
     }
     if (searchTerm && !investment.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -585,10 +588,12 @@ export const Investments = () => {
           >
             All Businesses
           </button>
+          
           <button 
             className={`filter-button ${activeFilter === 'food & beverage' ? 'active' : ''}`}
             onClick={() => setActiveFilter('food & beverage')}
           >
+            
             Food & Beverage
           </button>
           <button 
@@ -648,7 +653,7 @@ export const Investments = () => {
               <div className="investment-details">
                 <h2>{investment.title}</h2>
                 <div className="investment-location">
-                  <span className="location-icon">📍</span> {investment.location}
+                  <span className="location-icon"></span> {investment.location}
                 </div>
 
                 <div className="investment-stats">
@@ -669,7 +674,10 @@ export const Investments = () => {
                 <p className="investment-description">{investment.description.substring(0, 100)}...</p>
 
                 <div className="investment-features">
-                  {investment.features.slice(0, 3).map((feature, i) => (
+                  
+                { newFeatures = investment.features.split(',').map(f => f.trim())}
+
+                  {newFeatures.slice(0, 3).map((feature, i) => (
                     <span key={i} className="feature-tag">{feature}</span>
                   ))}
                   {investment.features.length > 3 && (
@@ -725,7 +733,7 @@ export const Investments = () => {
               <div className="modal-header">
                 <h2>{selectedInvestment.title}</h2>
                 <div className="investment-location">
-                  <span className="location-icon">📍</span> {selectedInvestment.location}
+                  <span className="location-icon"></span> {selectedInvestment.location}
                 </div>
               </div>
 

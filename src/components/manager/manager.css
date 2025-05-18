@@ -239,7 +239,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logout-button {
+.logout-button2 {
   width: 100%;
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -254,7 +254,7 @@
   justify-content: center;
 }
 
-.logout-button:hover {
+.logout-button2:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -1404,7 +1404,7 @@
     max-width: calc(100% - 80px);
   }
   
-  .logout-button span {
+  .logout-button2 span {
     display: none;
   }
 }
