@@ -14,7 +14,14 @@ const INITIAL_STATE_INVESTEE = {
         name: "",
         phoneNumber: "",
         address: ""
-    }]
+    }],
+    investee: {
+
+        id: "",
+        name: "",
+        phoneNumber: "",
+        address: ""
+    }
 
 }
 export const InvestmentProviderSlice = createSlice({

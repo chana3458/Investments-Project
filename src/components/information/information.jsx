@@ -49,17 +49,17 @@ export const Information = () => {
             </div>
             <div className="mission-text">
               <p className="highlight-text">
-                We're on a mission to democratize access to high-quality real estate investments, 
-                enabling individuals to build wealth through property without the traditional barriers.
+                We're on a mission to democratize access to high-quality business investments, 
+                enabling individuals to build wealth through diverse ventures without the traditional barriers.
               </p>
               <p>
-                For too long, premium real estate investments have been accessible only to the wealthy 
+                For too long, premium business investments have been accessible only to the wealthy 
                 and well-connected. Our platform changes that by fractionalizing ownership, lowering 
-                minimum investments, and providing transparent, professional management of each property.
+                minimum investments, and providing transparent, professional management of each business opportunity.
               </p>
               <p>
-                We believe that everyone deserves the opportunity to benefit from real estate's 
-                potential for appreciation, cash flow, and portfolio diversification.
+                We believe that everyone deserves the opportunity to benefit from business investments' 
+                potential for growth, cash flow, and portfolio diversification.
               </p>
             </div>
           </div>
@@ -97,7 +97,7 @@ export const Information = () => {
               <h3>Data-Driven</h3>
               <p>
                 Our investment selection process combines advanced analytics with 
-                expert human evaluation to identify properties with optimal return potential.
+                expert human evaluation to identify businesses with optimal return potential.
               </p>
             </div>
             
@@ -106,7 +106,7 @@ export const Information = () => {
               <h3>Accessibility</h3>
               <p>
                 We've removed traditional barriers to entry, making it possible to 
-                start investing in premium real estate with as little as $30,000.
+                start investing in premium business opportunities with as little as $30,000.
               </p>
             </div>
             
@@ -114,7 +114,7 @@ export const Information = () => {
               <div className="value-icon">🌱</div>
               <h3>Sustainability</h3>
               <p>
-                We prioritize properties and development projects that incorporate 
+                We prioritize businesses and ventures that incorporate 
                 sustainable practices and contribute positively to communities.
               </p>
             </div>
@@ -123,7 +123,7 @@ export const Information = () => {
               <div className="value-icon">💼</div>
               <h3>Professionalism</h3>
               <p>
-                Our team brings decades of combined experience in real estate, 
+                Our team brings decades of combined experience in business, 
                 finance, and technology to ensure professional management of every investment.
               </p>
             </div>
@@ -146,7 +146,7 @@ export const Information = () => {
               <h3>David Cohen</h3>
               <p className="member-title">Chief Executive Officer</p>
               <p className="member-bio">
-                With over 20 years of experience in real estate development and investment banking, 
+                With over 20 years of experience in business development and investment banking, 
                 David leads our strategic vision and investment committee.
               </p>
             </div>
@@ -158,8 +158,8 @@ export const Information = () => {
               <h3>Sarah Levy</h3>
               <p className="member-title">Chief Investment Officer</p>
               <p className="member-bio">
-                Sarah brings her expertise from managing a $2B real estate portfolio at a leading 
-                investment firm to oversee our property acquisition and management strategy.
+                Sarah brings her expertise from managing a $2B investment portfolio at a leading 
+                venture capital firm to oversee our business acquisition and management strategy.
               </p>
             </div>
             
@@ -204,12 +204,12 @@ export const Information = () => {
             </div>
             
             <div className="stat-item">
-              <div className="stat-number">35+</div>
-              <div className="stat-label">Properties in Portfolio</div>
+              <div className="stat-number">45+</div>
+              <div className="stat-label">Businesses in Portfolio</div>
             </div>
             
             <div className="stat-item">
-              <div className="stat-number">12.4%</div>
+              <div className="stat-number">14.2%</div>
               <div className="stat-label">Average Annual Return</div>
             </div>
           </div>
@@ -227,8 +227,8 @@ export const Information = () => {
             <div className="testimonial-card">
               <div className="testimonial-quote">"</div>
               <p className="testimonial-text">
-                I've been investing in real estate for years, but this platform has simplified 
-                the process while giving me access to properties I could never afford on my own.
+                I've been investing in businesses for years, but this platform has simplified 
+                the process while giving me access to opportunities I could never find on my own.
                 The returns have consistently exceeded my expectations.
               </p>
               <div className="testimonial-author">
@@ -245,7 +245,7 @@ export const Information = () => {
             <div className="testimonial-card">
               <div className="testimonial-quote">"</div>
               <p className="testimonial-text">
-                As a first-time real estate investor, I was nervous about making such a significant 
+                As a first-time business investor, I was nervous about making such a significant 
                 financial commitment. The team guided me through every step and helped me build a 
                 diversified portfolio that generates consistent monthly income.
               </p>
@@ -290,21 +290,21 @@ export const Information = () => {
           
           <div className="faq-grid">
             <div className="faq-item">
-              <h3>How does real estate investment work on your platform?</h3>
+              <h3>How does business investment work on your platform?</h3>
               <p>
-                Our platform allows you to invest in fractional ownership of premium real estate properties. 
-                You can browse available opportunities, review detailed information about each property, 
+                Our platform allows you to invest in fractional ownership of premium business opportunities. 
+                You can browse available ventures, review detailed information about each business, 
                 and invest with as little as $30,000. Once invested, you'll receive regular updates and 
-                distributions based on the property's performance.
+                distributions based on the business's performance.
               </p>
             </div>
             
             <div className="faq-item">
-              <h3>What types of properties can I invest in?</h3>
+              <h3>What types of businesses can I invest in?</h3>
               <p>
-                We offer a diverse range of investment opportunities including residential apartment 
-                complexes, commercial office buildings, retail spaces, industrial properties, and luxury 
-                developments. Each property is carefully selected based on its potential for appreciation 
+                We offer a diverse range of investment opportunities including tech startups, 
+                established SMEs, retail franchises, manufacturing businesses, and innovative ventures. 
+                Each business is carefully selected based on its potential for growth 
                 and income generation.
               </p>
             </div>
@@ -312,17 +312,17 @@ export const Information = () => {
             <div className="faq-item">
               <h3>How are returns generated and distributed?</h3>
               <p>
-                Returns come from two primary sources: regular income from property operations (such as 
-                rental income) and appreciation in property value. Income distributions are typically 
-                made quarterly, while appreciation is realized when a property is sold or refinanced.
+                Returns come from two primary sources: regular income from business operations (such as 
+                profit distributions) and appreciation in business value. Income distributions are typically 
+                made quarterly, while appreciation is realized when a business is sold or undergoes another liquidity event.
               </p>
             </div>
             
             <div className="faq-item">
               <h3>What are the risks involved?</h3>
               <p>
-                Like all investments, real estate involves certain risks including market fluctuations, 
-                property-specific issues, and economic factors. We mitigate these risks through thorough 
+                Like all investments, business ventures involve certain risks including market fluctuations, 
+                operational challenges, and economic factors. We mitigate these risks through thorough 
                 due diligence, professional management, and diversification. Each investment opportunity 
                 includes a detailed risk assessment to help you make informed decisions.
               </p>
@@ -331,19 +331,19 @@ export const Information = () => {
             <div className="faq-item">
               <h3>How liquid are my investments?</h3>
               <p>
-                Real estate investments are generally less liquid than stocks or bonds. Our investments 
-                typically have a target hold period of 3-7 years. However, we're developing a secondary 
+                Business investments are generally less liquid than stocks or bonds. Our investments 
+                typically have a target hold period of 3-5 years. However, we're developing a secondary 
                 market that will allow investors to sell their shares before the end of the hold period, 
                 subject to certain conditions.
               </p>
             </div>
             
             <div className="faq-item">
-              <h3>How do you select properties for investment?</h3>
+              <h3>How do you select businesses for investment?</h3>
               <p>
                 Our investment committee follows a rigorous selection process that evaluates hundreds 
-                of potential properties. We analyze location, market trends, financial projections, 
-                physical condition, and management requirements. Only about 3% of properties we review 
+                of potential businesses. We analyze market position, growth potential, financial health, 
+                management team, and scalability. Only about 5% of businesses we review 
                 ultimately become investment opportunities on our platform.
               </p>
             </div>
@@ -354,10 +354,10 @@ export const Information = () => {
       <div className={`cta-section ${isLoaded ? 'loaded' : ''}`}>
         <div className="section-container">
           <div className="cta-content">
-            <h2>Ready to Start Your Real Estate Investment Journey?</h2>
+            <h2>Ready to Start Your Business Investment Journey?</h2>
             <p>
               Join thousands of investors who are building wealth through our curated 
-              real estate investment opportunities.
+              business investment opportunities.
             </p>
             <div className="cta-buttons">
               <button className="primary-button" onClick={() => {navigate('/investments');

@@ -61,11 +61,17 @@ export const Investee = () => {
             </ul>
           </div>
           <div className="card-footer">
-            <button 
+            {/* <button 
               className="primary-button" 
               onClick={() => navigate(`/investeeRegister`)}
             >
               Register Property
+            </button> */}
+            <button 
+              className="primary-button" 
+              onClick={() => navigate(`/investeePersonalInfo`)} 
+            >
+              Register As Property Owner
             </button>
             <button 
               className="secondary-button" 

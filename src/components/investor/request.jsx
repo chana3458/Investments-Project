@@ -52,8 +52,8 @@ export const Request = () => {
   const [newReq, setNewReq] = useState({
     id: "",
     Budget: "",
-    Risk_Level: "",
-    Range: ""
+    Risk_Level: 0,
+    Range: 0
   });
   
   const [formErrors, setFormErrors] = useState({});
@@ -81,7 +81,7 @@ export const Request = () => {
       errors.Budget = "Please enter a valid budget amount";
     }
     
-    if (!newReq.Risk_Level.trim()) {
+    if (!newReq.Risk_Level) {
       errors.Risk_Level = "Risk level is required";
     } else if (isNaN(newReq.Risk_Level) || parseInt(newReq.Risk_Level) < 0 || parseInt(newReq.Risk_Level) > 10) {
       errors.Risk_Level = "Risk level must be between 0 and 10";
@@ -163,7 +163,7 @@ export const Request = () => {
                 min="0" 
                 max="10" 
                 value={newReq.Risk_Level || "0"}
-                onChange={e => setNewReq({...newReq, Risk_Level: e.target.value})}
+                onChange={e => setNewReq({...newReq, Risk_Level:parseInt( e.target.value)})}
                 className="range-slider"
               />
               <div className="range-labels">

@@ -10,6 +10,7 @@ import { deleteInvesteeThunk } from "../../redux/Slices/investee/deleteInvesteeT
 import { updateInvesteerThunk } from "../../redux/Slices/investee/updateInvesteeThunk";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
 import { Pie, Bar } from 'react-chartjs-2';
+import { getAllRequestThunk } from "../../redux/Slices/Request/getAllRequestThunk";
 
 // Register ChartJS components
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -18,7 +19,9 @@ export const Manager = () => {
   const dispatch = useDispatch();
   const allCustomers = useSelector(state => state.customers.customers);
   const allInvestees = useSelector(state => state.investees.investees|| []);
-  const allRequests = useSelector(state => state.requests?.requests || []);
+  const mockPendingRequests = useSelector(state => state.request?.requests || []);
+
+
 
   const [isManager, setIsManager] = useState(false);
   const [loginError, setLoginError] = useState(false);
@@ -100,13 +103,14 @@ export const Manager = () => {
     setIsLoaded(true);
 
     // Simulate fetching pending requests
-    const mockPendingRequests = [
-      { id: 1, customerId: "101", investeeId: "201", status: "pending", date: "2023-05-15", amount: 50000 },
-      { id: 2, customerId: "102", investeeId: "202", status: "pending", date: "2023-05-16", amount: 75000 },
-      { id: 3, customerId: "103", investeeId: "203", status: "pending", date: "2023-05-17", amount: 100000 },
-    ];
-
+    // const mockPendingRequests = [
+    //   { id: 1, customerId: "101", investeeId: "201", status: "pending", date: "2023-05-15", amount: 50000 },
+    //   { id: 2, customerId: "102", investeeId: "202", status: "pending", date: "2023-05-16", amount: 75000 },
+    //   { id: 3, customerId: "103", investeeId: "203", status: "pending", date: "2023-05-17", amount: 100000 },
+    // ];
+    dispatch(getAllRequestThunk());  
     setPendingRequests(mockPendingRequests);
+
 
     // Update dashboard stats
     setDashboardStats({
@@ -127,6 +131,10 @@ export const Manager = () => {
       // Add dispatch for requests when available
     }
   }, [isManager, dispatch, allCustomers, allInvestees]);
+const getAllReq=()=>{
+  dispatch(getAllRequestThunk()); 
+}
+
 
   const checkManager = async() => {
     if (currentPassword === manager) {
@@ -230,7 +238,9 @@ export const Manager = () => {
               </button>
               <button
                 className={`nav-item ${activeTab === 'investees' ? 'active' : ''}`}
-                onClick={() => setActiveTab('investees')}
+                onClick={() => {setActiveTab('investees')
+                  getAllReq();
+                }}
               >
                 <span className="nav-icon">🏢</span>
                 Property Owners
@@ -572,10 +582,17 @@ export const Manager = () => {
 
                           <div className="investee-details">
                             <div className="detail-item">
-                              {/* <span className="detail-icon">🆔</span> */}
+                              
                               <span className="detail-label">ID:</span>
+
                               <span className="detail-value">{investee.id}</span>
                             </div>
+                            <div className="detail-item">
+                              
+                              <span className="detail-label">Name:</span>
+                              <span className="detail-value">{investee.name}</span>
+                            </div>
+                            
                             <div className="detail-item">
                               {/* <span className="detail-icon">📞</span> */}
                               <span className="detail-label">Phone:</span>
@@ -594,16 +611,16 @@ export const Manager = () => {
                           </div>
 
                           <div className="investee-actions">
-                            <button
+                            {/* <button
                               className="view-button"
                               onClick={() => {
                                 // View property owner details
                                 alert(`Viewing details for ${investee.name}`);
                               }}
                             >
-                              {/* <span className="action-icon">👁️</span> */}
+                              <span className="action-icon">👁️</span>
                               View
-                            </button>
+                            </button> */}
                             <button
                               className="edit-button"
                               onClick={() => {
@@ -663,28 +680,38 @@ export const Manager = () => {
                         <thead>
                           <tr>
                             <th>Request ID</th>
-                            <th>Investor</th>
-                            <th>Property Owner</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>Name </th>
+                            <th>PhoneNumber</th>
+                            <th>Budget</th>
+                            <th>GotOffer</th>
+                            <th>Range </th>
+                            <th>Risk_Level</th>
+
                           </tr>
                         </thead>
                         <tbody>
                           {pendingRequests.map(request => (
                             <tr key={request.id}>
-                              <td>#{request.id}</td>
+                              <td>{request.id}</td>
                               <td>
-                                {allCustomers.find(c => c.id === request.customerId)?.name ||
-                                  `Investor #${request.customerId}`}
+                              <td>{request.name}</td>
                               </td>
                               <td>
-                                {allInvestees.find(i => i.id === request.investeeId)?.name ||
-                                  `Property Owner #${request.investeeId}`}
+                                <td>{request.phoneNumber}</td>
                               </td>
-                              <td className="amount">${request.amount.toLocaleString()}</td>
-                              <td>{request.date}</td>
+                              <td>
+                                <td>{request.budget}</td>
+                              </td>
+                            
+                              <td>
+                                <td>{request.gotOffer}</td>
+                              </td>
+                              <td>
+                                <td>{request.range}</td>
+                              </td>
+                              <td>
+                                <td>{request.riskLevel}</td>
+                              </td>
                               <td>
                                 <span className="status-badge pending">Pending</span>
                               </td>

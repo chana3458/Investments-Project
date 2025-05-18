@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCustomerByIdThunk } from "../../redux/Slices/Customer/getCustomerById";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./personalDetails.css";
+import "./investeePersonalInfo.css";
 import { updateCustomerThunk } from "../../redux/Slices/Customer/updateCustomerThunk";
 
-export const PersonalDetails = () => {
+export const InvesteePersonalInfo = () => {
   const [id, setId] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -197,7 +197,18 @@ const logOut = () => {
               <h1>Welcome, {customer.name}!</h1>
               <p>Your personal investment dashboard</p>
             </div>
-           
+            <button className="logout-button" onClick={() => navigate('/home')}>
+              Exit Dashboard
+            </button>
+            <button className="logout-button" onClick={() => logOut()}>
+              Log out
+            </button>
+            <button 
+              className="primary-button" 
+              onClick={() => navigate(`/investeeRegister`)}
+            >
+              Register Property
+            </button>
           </div>
 
           <div className="dashboard-content">
@@ -208,8 +219,9 @@ const logOut = () => {
                   <button className="back-to-dashboard" onClick={() => setViewReq(false)}>
                     Back to Dashboard
                   </button>
-                </div>
 
+                </div>
+               
 
                 {customerRequests && customerRequests.length >= 0 ? (
                   <div className="requests-list">
@@ -219,6 +231,7 @@ const logOut = () => {
                       <div className="request-header-cell">Amount</div>
                       <div className="request-header-cell">RiskLevel</div>
                       <div className="request-header-cell">PhoneNumber</div>
+                      
                     </div>
 
                     {customerRequests.map(request => (
@@ -310,12 +323,7 @@ const logOut = () => {
               </>
             )}
           </div>
-          <button className="logout-button" onClick={() => navigate('/home')}>
-              Exit Dashboard
-            </button>
-            <button className="logout-button" onClick={() => logOut()}>
-              Log out
-            </button>
+
           {/* Schedule Appointment Modal */}
           {showScheduleForm && (
             <div className="modal-overlay">
