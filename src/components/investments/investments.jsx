@@ -36,20 +36,20 @@
 //       expectedCompletion: "2024-12-01"
 //     },
 //     {
-//       id: "inv2",
-//       title: "Commercial Office Building",
-//       location: "Jerusalem, Israel",
-//       type: "commercial",
-//       price: 4800000,
-//       roi: 9.8,
-//       term: 84, // months
-//       minInvestment: 100000,
-//       description: "Prime commercial property in Jerusalem's business district. Fully leased with long-term corporate tenants.",
-//       features: ["5 Floors", "Modern Design", "Conference Center", "Parking Garage", "24/7 Access"],
-//       images: ["https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-//       investmentProgress: 42, // percentage funded
-//       investorCount: 9,
-//       expectedCompletion: "2025-06-15"
+      // id: "inv2",
+      // title: "Commercial Office Building",
+      // location: "Jerusalem, Israel",
+      // type: "commercial",
+      // price: 4800000,
+      // roi: 9.8,
+      // term: 84, // months
+      // minInvestment: 100000,
+      // description: "Prime commercial property in Jerusalem's business district. Fully leased with long-term corporate tenants.",
+      // features: ["5 Floors", "Modern Design", "Conference Center", "Parking Garage", "24/7 Access"],
+      // images: ["https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
+      // investmentProgress: 42, // percentage funded
+      // investorCount: 9,
+      // expectedCompletion: "2025-06-15"
 //     },
 //     {
 //       id: "inv3",

@@ -12,6 +12,7 @@ import { PersonalDetails } from "../personalDetails/personalDetails"
 import { Request } from "../investor/request"
 import { Information } from "../information/information"
 import { Investments } from "../investments/investments"
+import { InvesteePersonalInfo } from "../investee/investeePersonalInfo"
 
 export const Routing=()=>{
     return <div>
@@ -32,7 +33,7 @@ export const Routing=()=>{
 <Route path={'/request'} element={<Request/>}></Route>
 <Route path={'/information'} element={<Information/>}></Route>
 <Route path={'/investments'} element={<Investments/>}></Route>
-
+<Route path={'/investeePersonalInfo'} element={<InvesteePersonalInfo/>}></Route>
 
 
 
