@@ -364,7 +364,7 @@ export const Information = () => {
             dispatch(getAllInvestmentsThunk)}}>
                 Browse Investments
               </button>
-              <button className="secondary-button" onClick={() => navigate('/CustomerRegister')}>
+              <button className="secondary-button1" onClick={() => navigate('/CustomerRegister')}>
                 Create Account
               </button>
             </div>

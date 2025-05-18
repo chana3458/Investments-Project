@@ -68,7 +68,7 @@ export const Investor = () => {
               Register as Investor
             </button>
             <button 
-              className="secondary-button" 
+              className="secondary-button3" 
               onClick={() => navigate(`/personalDetails`)}
             >
               My Portfolio

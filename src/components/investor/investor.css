@@ -98,7 +98,7 @@
     transform: scale(1.05);
   }
   
-  .secondary-button {
+  .secondary-button3 {
     background-color: var(--accent-color);
     color: white;
     border: none;
@@ -110,7 +110,7 @@
     font-weight: 600;
   }
   
-  .secondary-button:hover {
+  .secondary-button3:hover {
     background-color: #d35400;
     transform: scale(1.05);
   }
@@ -385,7 +385,7 @@
       flex-direction: column;
     }
     
-    .primary-button, .secondary-button, .outline-button {
+    .primary-button, .secondary-button3, .outline-button {
       width: 100%;
     }
     
