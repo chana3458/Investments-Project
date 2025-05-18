@@ -68,7 +68,7 @@ export const Investee = () => {
               Register Property
             </button>
             <button 
-              className="secondary-button" 
+              className="secondary-button2" 
               onClick={() => navigate(`/home`)}
             >
               Back to Home

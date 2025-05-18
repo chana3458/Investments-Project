@@ -165,7 +165,7 @@
     transform: scale(1.05);
   }
   
-  .secondary-button {
+  .secondary-button2 {
     background-color: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
@@ -177,7 +177,7 @@
     font-weight: 600;
   }
   
-  .secondary-button:hover {
+  .secondary-button2:hover {
     background-color: var(--primary-color);
     color: white;
   }
@@ -196,7 +196,7 @@
       gap: 15px;
     }
     
-    .primary-button, .secondary-button {
+    .primary-button, .secondary-button2 {
       width: 100%;
     }
   }
