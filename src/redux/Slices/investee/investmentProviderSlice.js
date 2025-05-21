@@ -15,6 +15,7 @@ const INITIAL_STATE_INVESTEE = {
         phoneNumber: "",
         address: ""
     }]
+    
 
 }
 export const InvestmentProviderSlice = createSlice({

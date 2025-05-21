@@ -69,7 +69,8 @@ export const RealEstate = () => {
             <li>Review and approve investor applications</li>
             <li>Manage your property portfolio efficiently</li>
           </ul>
-          <button className="option-button">Register as Property Owner</button>
+          <button
+           className="option-button">Register as Property Owner</button>
         </div>
         
         <div 

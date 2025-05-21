@@ -1115,7 +1115,7 @@ export const Manager = () => {
                     onClick={() => {
                       setInsure(false);
                       dispatch(delCustomerThunk(currentId));
-                      // dispatch(getAllCustomersThunk());
+                       dispatch(getAllCustomersThunk());
                     }}
                   >
                     Delete Permanently

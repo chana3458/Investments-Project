@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllInvestmentsThunk } from "./getAllInvestmentsThunk";
+import { addInvestmentThunk } from "./addInvestmentThunk";
 
 
 
@@ -34,9 +35,15 @@ export  const investmentSlice=createSlice({
 
 
         builder.addCase(getAllInvestmentsThunk.fulfilled, (state, action) => {
-debugger
+
             state.investments = action.payload;
         });
+
+        builder.addCase(addInvestmentThunk.fulfilled, (state, action) => {
+
+            state.investments = action.payload;
+        });
+
 
     }
 

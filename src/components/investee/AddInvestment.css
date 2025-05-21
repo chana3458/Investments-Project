@@ -1,0 +1,245 @@
+/* /* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Login styles */
+.login-wrapper {
+  max-width: 400px;
+  margin: 80px auto;
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.login-form h2 {
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #0052cc;
+  outline: none;
+  box-shadow: 0 0 8px #0052ccaa;
+}
+
+.input-error {
+  border-color: #e74c3c !important;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: -12px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-primary {
+  background-color: #0052cc;
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #003d99;
+}
+
+.btn-primary:disabled {
+  background-color: #a0a9c9;
+  cursor: not-allowed;
+}
+
+.login-hint {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/* Investment form styles */
+.investment-wrapper {
+  max-width: 720px;
+  margin: 40px auto 80px;
+  background: white;
+  padding: 30px 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.investment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.investment-header h2 {
+  margin: 0;
+  font-weight: 700;
+  color: #222;
+}
+
+.btn-logout {
+  background-color: #e03e3e;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #b32b2b;
+}
+
+.investment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.form-row input,
+.form-row textarea {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: #0052cc;
+  outline: none;
+  box-shadow: 0 0 8px #0052ccaa;
+}
+
+.required {
+  color: #e03e3e;
+  margin-left: 4px;
+}
+
+.form-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+.btn-secondary {
+  background-color: #ccc;
+  color: #333;
+  padding: 12px 24px;
+  border-radius: 8px;
+  
+}
+/* src/components/investee/investeeRegister.css */
+.register-button {
+  background-color: #0052cc; /* ירוק */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.register-button:hover {
+  background-color: #0052ccaa; 
+}
+
+.register-button:disabled {
+  background-color: #a5d3e6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+/* עיצוב בסיסי ל-select */
+.investment-form select {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  appearance: none; /* מסיר את העיצוב הדיפולטי של הדפדפן */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%227%22%20viewBox%3D%220%200%2010%207%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1%201L5%206L9%201%22%20stroke%3D%22%23333%22%20stroke-width%3D%222%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px 7px;
+}
+
+.investment-form select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+/* עיצוב שגיאה */
+.investment-form select.input-error {
+  border-color: #dc3545;
+}
+
+.investment-form select.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(220,53,69,0.25);
+}

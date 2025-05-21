@@ -63,12 +63,19 @@ export const Investee = () => {
           <div className="card-footer">
             <button 
               className="primary-button" 
-              onClick={() => navigate(`/investeeRegister`)}
+              onClick={() => navigate(`/AddInvestment`)}
             >
               Register Property
             </button>
             <button 
-              className="secondary-button" 
+              className="primary-button" 
+              onClick={() => navigate(`investeeRegister`)}
+            >
+              Register asinvestment Provider
+            </button>
+
+            <button 
+              className="primary-button" 
               onClick={() => navigate(`/home`)}
             >
               Back to Home

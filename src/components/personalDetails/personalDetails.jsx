@@ -1,3 +1,8 @@
+/**
+ * Imports Redux hooks for dispatching actions and selecting state from the Redux store.
+ * - `useDispatch` allows dispatching actions to trigger state changes
+ * - `useSelector` enables extracting specific pieces of state from the Redux store
+ */
 import { useDispatch, useSelector } from "react-redux";
 import { getCustomerByIdThunk } from "../../redux/Slices/Customer/getCustomerById";
 import { useState, useEffect } from "react";
@@ -68,7 +73,7 @@ const logOut = () => {
 
 }
 
-  const handleLogin = async () => {
+  const   handleLogin = async () => {
     if (!id.trim())
       setLoginError(true);
 
