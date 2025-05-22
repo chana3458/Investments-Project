@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./AddInvestment.css"
 import { useDispatch, useSelector } from "react-redux"
@@ -32,6 +32,10 @@ export const AddInvestment = () => {
     images: "",
     features: "",
   })
+  useEffect(() => {
+    dispatch(getAllInvesteesThunk());
+  }, []);
+
   const Allip = useSelector(state => state.investees.investees);
   const [formErrors, setFormErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -57,16 +61,20 @@ export const AddInvestment = () => {
   }
 
   // Handle login submit
-  const  handleLogin =async (e) => {
+  const  handleLogin = (e) => {
+    console.log("Login submitted"+Allip)
     e.preventDefault()
     if (!username.trim() || !password.trim())
       setLoginError("Please enter username and password")
-    else{
-      try {
-        await dispatch(getAllInvesteesThunk(password));
-      } catch (error) {
-        setLoginError(true);
-      }
+    else
+    {
+      // try {
+      //   await dispatch(getAllInvesteesThunk(password));
+     
+      // } catch (error) {
+       
+      //   setLoginError(true);
+      // }
       if (!Allip.some(ip => ip.id === password && ip.name === username)){
         setLoginError(<div>
           <p>You are not registered as an investment provider. Please register first.</p>

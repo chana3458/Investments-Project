@@ -122,7 +122,7 @@
 //     // dispatch(getAllAvailableInvestmentsThunk());
     
 //     setIsLoaded(true);
-//   }, []);
+//  (() => {
   
 //   const filteredInvestments = availableInvestments.filter(investment => {
 //     // Filter by type
